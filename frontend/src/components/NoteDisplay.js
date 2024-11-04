@@ -14,7 +14,7 @@ const NoteDisplay = () => {
         const response = await fetch(`https://localhost:5000/api/note/${noteId}`);
         const data = await response.json();
         if (response.ok) {
-          setNote(data);
+          setNoteContent(data.content);
         } else {
           setError('Error fetching the note.');
         }

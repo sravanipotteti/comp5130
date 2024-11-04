@@ -27,8 +27,8 @@ router.post('/register', async (req, res) => {
       }
   
       // Log entered and stored passwords for debugging
-      console.log('Entered Password:', password); // Plaintext password entered by user
-      console.log('Stored Hashed Password:', user.password); // Hashed password from database
+      //console.log('Entered Password:', password); // Plaintext password entered by user
+      //console.log('Stored Hashed Password:', user.password); // Hashed password from database
   
       // Compare entered password with hashed password
       const isMatch = await bcrypt.compare(password, user.password);

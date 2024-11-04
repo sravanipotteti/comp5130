@@ -35,7 +35,7 @@
   }
   
   .note-link-box button {
-    background-color: #8b0000;
+    background-color: #3b5998; /* Blue color */
     color: white;
     padding: 10px 15px;
     border: none;
@@ -44,6 +44,22 @@
   }
   
   .note-link-box button:hover {
-    background-color: #a52a2a;
+    background-color: #3b5998; /* Blue color */
   }
+  
+  .copy-link-btn {
+    background-color: #3b5998; /* Blue background */
+    color: white; /* White text */
+    padding: 10px 15px; /* Add some padding */
+    border: none; /* Remove any border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 1rem; /* Adjust font size */
+    margin-left: 10px; /* Space between the input field and the button */
+}
+
+.copy-link-btn:hover {
+    background-color: #365492; /* Darker blue on hover */
+}
+
   
