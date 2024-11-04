@@ -1,0 +1,66 @@
+/* Scope styles to the login and register pages using a parent class */
+.login-page, .register-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    padding-top: 60px; /* Prevents overlap with the header */
+    box-sizing: border-box;
+}
+
+/* Scope styles for the form container */
+.login-page .login-container, .register-page .register-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 350px;
+    padding: 40px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Shared input styles for login and register */
+.login-page input, .register-page input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Shared button styles */
+.login-page button, .register-page button {
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.login-page button:hover, .register-page button:hover {
+    background-color: #333333d6;
+}
+
+/* Shared link styles */
+.login-page a, .register-page a {
+    text-decoration: none;
+    color: #3b5998;
+}
+
+.login-page a:hover, .register-page a:hover {
+    text-decoration: underline;
+}
+
+/* Error message styling for both pages */
+.error-message {
+    color: red;
+    background-color: #ffe6e6;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid red;
+    border-radius: 5px;
+}
