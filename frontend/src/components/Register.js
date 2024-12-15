@@ -13,6 +13,10 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!username || !email || !password) {
+      setError('All fields are required.');
+      return;
+    }
     try {
       const { data } = await axios.post('https://localhost:5000/api/auth/register', {
         username,

@@ -120,7 +120,7 @@ const NoteForm = () => {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              placeholder="Enter password (optional)"
+              placeholder="Enter password"
             />
             <input
               type="password"
@@ -134,7 +134,7 @@ const NoteForm = () => {
               type="email"
               value={notificationEmail}
               onChange={(e) => setNotificationEmail(e.target.value)}
-              placeholder="Email (optional)"
+              placeholder="Email"
             />
           </div>
         )}

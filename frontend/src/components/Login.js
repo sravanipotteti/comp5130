@@ -52,12 +52,13 @@ const Login = () => {
           />
           {error && <div className="error-message">{error}</div>}
           <div className="login-actions">
-            <a href="#">Forget Password?</a>
+            
+
             <button type="submit">Login</button>
           </div>
         </form>
         <p>
-          Not a Member? <a href="/register">Register</a>
+          Don't have an account? <a href="/register">Register</a>
         </p>
       </div>
     </div>

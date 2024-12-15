@@ -1,32 +1,59 @@
-.app-header {
-    background-color: #3b5998;; 
-    color: white;
-    padding: 5px;
-    text-align: center;
-    display: flex;
-    justify-content: center; 
-  }
-  
-  .logo-container {
-    display: flex;
-    align-items: center; 
-    justify-content: center; 
-  }
-  
+header.app-header {
+  background-color: #3b5998;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header.app-header .logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header.app-header .logo {
+  font-size: 2rem;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+
+@media (max-width: 768px) {
   .logo {
-    font-size: 3rem;
-    display: inline-block;
-    margin-right: 15px; 
-  }
-  
-  .lock-icon {
     font-size: 1.5rem;
-    margin: 0 5px;
   }
-  
-  .tagline {
-    margin-top: 70px;
-    font-size: 1rem;
-    white-space: nowrap; 
+}
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 1.2rem;
   }
-  
+}
+
+.header {
+  background-color: #3b5998; /* Blue background color */
+  text-align: center;
+  padding: 20px 0;
+}
+
+.header-title {
+  font-size: 36px;
+  color: white;
+  margin: 0;
+}
+
+.tagline {
+  margin-top: 70px;
+  font-size: 1rem;
+  white-space: nowrap; 
+}
+

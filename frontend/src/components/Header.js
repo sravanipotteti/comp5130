@@ -6,9 +6,9 @@ const Header = () => {
     <header className="app-header">
       <div className="logo-container">
         <h1 className="logo">
-        <span className="logo-main">PrivNote</span>
+        <span className="logo-main">SafeNotes</span>
         </h1>
-        <p className="tagline">Send notes that will self-destruct after being read.</p>
+        <p class= "tagline">Share. Secure. Self-Destruct.</p>
       </div>
     </header>
   );

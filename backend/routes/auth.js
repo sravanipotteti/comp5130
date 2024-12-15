@@ -6,18 +6,28 @@ const router = express.Router();
 
 // Registration route
 router.post('/register', async (req, res) => {
-    const { username, email, password } = req.body;
-    try {
-      const user = new User({ username, email, password }); // No need to hash again
-      await user.save();
-      res.status(201).json({ message: 'User registered successfully' });
-    } catch (error) {
-      res.status(400).json({ error: 'User registration failed' });
-    }
-  });
-  
+  const { username, email, password } = req.body;
 
-  router.post('/login', async (req, res) => {
+  if (!username || !email || !password) {
+    return res.status(400).json({ error: 'All fields are required.' });
+  }
+
+  try {
+    if (!username || !email || !password) {
+      console.error('Validation error: Missing fields');
+      return res.status(400).json({ error: 'All fields are required.' });
+    }
+
+    const user = new User({ username, email, password }); // No need to hash again
+    await user.save();
+    res.status(201).json({ message: 'User registered successfully' });
+  } catch (error) {
+    console.error('Error in /register route:', error.message); // Log backend errors
+    res.status(400).json({ error: error.message || 'User registration failed' });
+  }
+});
+
+router.post('/login', async (req, res) => {
     const { username, password } = req.body;
   
     try {

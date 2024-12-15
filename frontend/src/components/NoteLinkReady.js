@@ -1,46 +1,60 @@
 import React from 'react';
-import { useParams, useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useParams, useNavigate } from 'react-router-dom';
 import './NoteLinkReady.css';
 
 const NoteLinkReady = () => {
-  const { noteId } = useParams(); // Fetch the noteId from the URL parameters
+  const { noteId } = useParams();
   const navigate = useNavigate();
+  const noteLink = `https://localhost:5000/api/note/${noteId}`;
 
-  const noteLink = `https://localhost:5000/api/note/${noteId}`; // Dynamically create the link with the noteId
+  console.log('Note ID:', noteId); // Debugging
+  console.log('Note Link:', noteLink); // Debugging
 
-  const handleCopyLink = () => {
-    navigator.clipboard.writeText(noteLink).then(() => {
-      alert("Link copied to clipboard!");
-    }).catch(() => {
-      alert("Failed to copy the link.");
-    });
+  const handleCopyLink = async () => {
+    try {
+      await navigator.clipboard.writeText(noteLink);
+      alert('Link copied to clipboard!');
+    } catch (err) {
+      console.error('Error copying link:', err);
+      alert('Failed to copy the link.');
+    }
   };
 
   const handleDestroyNote = async () => {
     try {
-      const response = await fetch(noteLink, {
-        method: 'DELETE',
-      });
+      const response = await fetch(noteLink, { method: 'DELETE' });
 
       if (response.ok) {
-        alert('Note destroyed successfully.');
-        navigate('/'); // Redirect to home or another page
+        const data = await response.json(); // Optional
+        alert(data.message || 'Note destroyed successfully.');
+        navigate('/');
       } else {
-        alert('Error: Unable to destroy the note.');
+        const errorData = await response.json();
+        alert(`Error: ${errorData.message || 'Unable to destroy the note.'}`);
       }
     } catch (error) {
+      console.error('Error destroying the note:', error);
       alert('Error: Could not connect to the server.');
     }
   };
 
+  const handleEmailLink = () => {
+    window.open(`mailto:?subject=Note Link&body=${noteLink}`, '_blank');
+  };
+
   return (
     <div className="note-link-ready-container">
-      <h2>Note link ready</h2>
-      <p>The note link is ready. Copy the link below to share it. The note will self-destruct after it is read.</p> 
-      <input type="text" value={noteLink} readOnly className="note-url"/>
-      <button onClick={handleCopyLink}>Copy Link</button>
-      <button onClick={handleDestroyNote}>Destroy note now</button>
-      <p>Or, <a href={noteLink} target="_blank" rel="noopener noreferrer">click here</a> to open the note in a new tab.</p>
+      <div className="note-link-title">NOTELINK READY</div>
+      <div className="note-link-box">
+        <input type="text" value={noteLink} readOnly className="note-link-input" />
+      </div>
+      <div className="note-link-buttons">
+        <button onClick={handleCopyLink}>Copy Link</button>
+        <button className="email-link-btn" onClick={handleEmailLink}>
+          Email Link
+        </button>
+        <button onClick={handleDestroyNote}>Destroy Link</button>
+      </div>
     </div>
   );
 };
