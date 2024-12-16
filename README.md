@@ -133,3 +133,11 @@ https://localhost:5000
 https://localhost:3000
    ```
 
+6. ## **API Documentation**
+
+| **Method** | **Endpoint**       | **Description**                  | **Auth Required** |
+|------------|--------------------|----------------------------------|-------------------|
+| **POST**   | `/api/auth/login`  | Logs in the user and returns a JWT | No                |
+| **POST**   | `/api/note`        | Creates a new encrypted note      | Yes               |
+| **GET**    | `/api/note/:id`    | Fetches and deletes the note      | Yes               |
+| **DELETE** | `/api/note/:id`    | Deletes the note explicitly       | Yes               |
