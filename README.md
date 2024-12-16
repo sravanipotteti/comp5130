@@ -124,13 +124,13 @@ Before starting, ensure you have the following installed:
    ```
    
 
-***The backend server will run on:***
-```bash
-https://localhost:5000
-```
-***The frontend server will run on:***
-```bash
-https://localhost:3000
+   ***The backend server will run on:***
+   ```bash
+   https://localhost:5000
+   ```
+   ***The frontend server will run on:***
+   ```bash
+   https://localhost:3000
    ```
 
 6. ## **API Documentation**
