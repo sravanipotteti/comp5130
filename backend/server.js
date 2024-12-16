@@ -16,6 +16,7 @@ const { encrypt, decrypt } = require('./utils/encryption');
 const crypto = require('crypto');
 const nodemailer = require('nodemailer');
 const User = require('./models/User');
+const setupSwagger = require('./swaggerConfig');
 
 
 // Initialize express app
@@ -40,6 +41,10 @@ const sslOptions = {
 connectDB();
 
 
+// Setup Swagger
+setupSwagger(app); // Add Swagger middleware
+
+// Routes
 app.use('/api/auth', authRoutes);
 // Define a route for the root ("/")
 app.get('/', (req, res) => {
@@ -311,4 +316,5 @@ const port = process.env.PORT || 5000;
 // Define the HTTPS server
 https.createServer(sslOptions, app).listen(port, () => {
   console.log(`Secure server running on :${port}`);
+  console.log(`API Docs available at https://localhost:${port}/api-docs`);
 });
