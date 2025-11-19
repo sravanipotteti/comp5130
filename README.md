@@ -88,7 +88,7 @@ Before starting, ensure you have the following installed:
    Open your terminal and run the following commands:
 
    ```bash
-   git clone https://github.com/your-username/comp5130.git
+   git clone https://github.com/sravanipotteti/comp5130.git
    cd comp5130
     ```
 2. **Backend Setup**
